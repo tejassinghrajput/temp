@@ -55,10 +55,21 @@
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
+            position: relative;
         }
 
         nav a:hover {
             opacity: 0.8;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: white;
         }
 
         /* Hero Section */
@@ -529,7 +540,8 @@
                 successMessage.classList.remove('show');
             }, 5000);
             
-            // Log form data (in a real application, this would send to a server)
+            // In a real application, you would send this data to a server
+            // For demonstration purposes only - remove in production
             console.log('Form submitted:', { name, email, message });
         }
 
