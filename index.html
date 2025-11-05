@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tejas Kumar Singh | Full Stack Developer Portfolio</title>
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
     <style>
         * {
             margin: 0;
@@ -1185,6 +1196,9 @@
     </style>
 </head>
 <body>
+    <!-- Particles Background -->
+    <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+    
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -1249,22 +1263,22 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                        <div class="stat-number">2+</div>
+                        <div class="stat-number" id="stat-years">2+</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                        <div class="stat-number">15+</div>
+                        <div class="stat-number" id="stat-projects">15+</div>
                         <div class="stat-label">Projects Done</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-smile"></i></div>
-                        <div class="stat-number">90%</div>
+                        <div class="stat-number" id="stat-satisfaction">90%</div>
                         <div class="stat-label">Client Satisfaction</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-number">100+</div>
+                        <div class="stat-number" id="stat-students">100+</div>
                         <div class="stat-label">Students Helped</div>
                     </div>
                 </div>
@@ -1282,7 +1296,7 @@
             <p class="section-subtitle">My academic journey and achievements</p>
         </div>
         <div class="education-grid">
-            <div class="education-card fade-in">
+            <div class="education-card fade-in" data-aos="fade-up" data-aos-delay="100">
                 <div class="education-header">
                     <div class="education-icon">
                         <i class="fas fa-university"></i>
@@ -1299,7 +1313,7 @@
                     <i class="fas fa-star"></i> CGPA: 90.30%
                 </div>
             </div>
-            <div class="education-card fade-in">
+            <div class="education-card fade-in" data-aos="fade-up" data-aos-delay="200">
                 <div class="education-header">
                     <div class="education-icon">
                         <i class="fas fa-school"></i>
@@ -1743,6 +1757,142 @@
                 el.style.transition = 'all 0.6s ease';
                 observer.observe(el);
             });
+        });
+    </script>
+    
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Typed.js for typing animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Particles.js for background effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Vanilla Tilt.js for card tilt effects -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- CountUp.js for number animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.2/countUp.umd.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-in-out'
+        });
+        
+        // Initialize Typed.js for role animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleElement = document.querySelector('.role');
+            if (roleElement) {
+                const originalText = roleElement.innerHTML;
+                roleElement.innerHTML = '<span id="typed-role"></span>';
+                
+                new Typed('#typed-role', {
+                    strings: [
+                        '<i class="fas fa-laptop-code"></i> Software Development Engineer - I',
+                        '<i class="fas fa-code"></i> Full Stack Developer',
+                        '<i class="fas fa-server"></i> Backend Specialist',
+                        '<i class="fas fa-database"></i> Database Architect'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    loop: true,
+                    backDelay: 2000
+                });
+            }
+        });
+        
+        // Initialize Particles.js
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#6366f1' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.3, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#6366f1',
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'grab' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+        
+        // Initialize Vanilla Tilt for cards
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(document.querySelectorAll('.project-card, .education-card, .skill-category'), {
+                    max: 5,
+                    speed: 400,
+                    glare: true,
+                    'max-glare': 0.2
+                });
+            }
+        });
+        
+        // Initialize CountUp for stats
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof countUp !== 'undefined') {
+                const stats = [
+                    { id: 'stat-years', end: 2, suffix: '+' },
+                    { id: 'stat-projects', end: 15, suffix: '+' },
+                    { id: 'stat-satisfaction', end: 90, suffix: '%' },
+                    { id: 'stat-students', end: 100, suffix: '+' }
+                ];
+                
+                const observerStats = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const stat = stats.find(s => entry.target.id === s.id);
+                            if (stat) {
+                                const counter = new countUp.CountUp(stat.id, stat.end, {
+                                    duration: 2.5,
+                                    suffix: stat.suffix
+                                });
+                                if (!counter.error) {
+                                    counter.start();
+                                }
+                                observerStats.unobserve(entry.target);
+                            }
+                        }
+                    });
+                });
+                
+                stats.forEach(stat => {
+                    const el = document.getElementById(stat.id);
+                    if (el) observerStats.observe(el);
+                });
+            }
         });
     </script>
 </body>
